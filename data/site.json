@@ -68,12 +68,21 @@
   ],
   "portfolio": [
     {
-      "arquivo": "forro-led-luxo-1x1.webp",
+      "arquivo": "Forro-Geométrico-LED.png",
       "titulo": "Forro com Led",
       "categoria": "Forros",
       "cidade": "Itanhaém",
       "tipo": "video-url",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525?q=belartgesso&t=1791298793579",
+      "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525?q=belartgesso&t=1791320873775",
+      "plataforma": "tiktok"
+    },
+    {
+      "arquivo": "image_20261006_182254.jpg",
+      "titulo": "🎵 TikTok @belartgesso347",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://www.tiktok.com/@belartgesso347/video/7686546726941232404?q=belartgesso&t=1791320873775",
       "plataforma": "tiktok"
     },
     {
