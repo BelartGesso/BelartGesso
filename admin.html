@@ -86,6 +86,11 @@ function render(){
       <input value="${item.url||''}" placeholder="Cole link: https://www.tiktok.com/@belartgesso347/video/..." class="input" style="margin-top:6px" oninput="dados.portfolio[${i}].url=this.value; if(this.value) dados.portfolio[${i}].tipo='video-url'; renderLista()">
       <div class="small">TikTok: ${item.plataforma||'tiktok'} - Copie link no app > Compartilhar > Copiar link</div>
     </div>
+    <div style="background:#eef7ff;border:1px solid #cfe5ff;border-radius:12px;padding:10px;margin:8px 0">
+      <div style="font-size:11px;font-weight:800;color:#245b8f">🖼️ MINIATURA DO VÍDEO</div>
+      <input value="${item.miniatura||''}" placeholder="Nome do arquivo da miniatura em imagens/ (ex.: miniatura-forro.jpg)" class="input" style="margin-top:6px" oninput="dados.portfolio[${i}].miniatura=this.value">
+      <div class="small">A miniatura deve estar na pasta <b>imagens/</b> do GitHub. Ex.: imagens/miniatura-forro.jpg</div>
+    </div>
     <input value="${item.titulo||item.legenda||''}" placeholder="Título / Legenda" class="input" oninput="dados.portfolio[${i}].titulo=this.value">
     <div class="row">
       <input value="${item.categoria||''}" placeholder="Categoria: Forros, Sancas, Drywall, Iluminação" class="input" oninput="dados.portfolio[${i}].categoria=this.value">
