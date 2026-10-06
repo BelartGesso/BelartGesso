@@ -69,7 +69,7 @@
   "portfolio": [
     {
       "arquivo": "",
-      "miniatura": "Forro-Geométrico-LED.png",
+      "miniatura": "og-image-Copia.jpg",
       "titulo": "Forro com  Led",
       "categoria": "Forros",
       "cidade": "Itanhaém",
@@ -97,6 +97,69 @@
       "tipo": "video-url",
       "url": "https://www.tiktok.com/@belartgesso347/video/",
       "plataforma": "tiktok"
+    },
+    {
+      "arquivo": "",
+      "titulo": "🎵 TikTok @belartgesso347",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://www.tiktok.com/@belartgesso347/video/",
+      "plataforma": "tiktok"
+    },
+    {
+      "arquivo": "",
+      "titulo": "▶️ YouTube - Forro de gesso",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://youtu.be/",
+      "plataforma": "youtube"
+    },
+    {
+      "arquivo": "",
+      "titulo": "📸 Instagram Reels",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://www.instagram.com/reel/",
+      "plataforma": "instagram"
+    },
+    {
+      "arquivo": "",
+      "titulo": "👍 Facebook Reels",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://www.facebook.com/",
+      "plataforma": "facebook"
+    },
+    {
+      "arquivo": "",
+      "titulo": "🎵 TikTok @belartgesso347",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://www.tiktok.com/@belartgesso347/video/",
+      "plataforma": "tiktok"
+    },
+    {
+      "arquivo": "",
+      "titulo": "▶️ YouTube - Forro de gesso",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://youtu.be/",
+      "plataforma": "youtube"
+    },
+    {
+      "arquivo": "",
+      "titulo": "📸 Instagram Reels",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://www.instagram.com/reel/",
+      "plataforma": "instagram"
     }
   ],
   "faq": [
