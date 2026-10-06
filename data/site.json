@@ -66,30 +66,39 @@
       ""
     ]
   ],
- "portfolio": [
-  {
-    "arquivo": "",
-    "miniatura": "NOME-DA-SUA-FOTO.jpg",
-    "titulo": "🎵 TikTok @belartgesso347",
-    "categoria": "Forros",
-    "cidade": "Itanhaém",
-    "tipo": "video-url",
-    "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525?q=belartgesso&t=1791298793579",
-    "plataforma": "tiktok"
-  },
-  {
-    "arquivo": "antes-depois-sala---copia.jpg",
-    "titulo": "Antes e depois de sala",
-    "categoria": "Antes e Depois",
-    "cidade": "Itanhaém"
-  },
-  {
-    "arquivo": "lustre-cristal-branco-uniforme-1x1.webp",
-    "titulo": "Detalhe de iluminação",
-    "categoria": "Iluminação",
-    "cidade": "Mongaguá"
-  }
-],
+  "portfolio": [
+    {
+      "arquivo": "Forro-Geométrico-LED.png",
+      "miniatura": "NOME-DA-SUA-FOTO.jpg",
+      "titulo": "Forro com  Led",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525?q=belartgesso&t=1791298793579",
+      "plataforma": "tiktok"
+    },
+    {
+      "arquivo": "antes-depois-sala---copia.jpg",
+      "titulo": "Antes e depois de sala",
+      "categoria": "Antes e Depois",
+      "cidade": "Itanhaém"
+    },
+    {
+      "arquivo": "lustre-cristal-branco-uniforme-1x1.webp",
+      "titulo": "Detalhe de iluminação",
+      "categoria": "Iluminação",
+      "cidade": "Mongaguá"
+    },
+    {
+      "arquivo": "",
+      "titulo": "🎵 TikTok @belartgesso347",
+      "categoria": "Forros",
+      "cidade": "Itanhaém",
+      "tipo": "video-url",
+      "url": "https://www.tiktok.com/@belartgesso347/video/",
+      "plataforma": "tiktok"
+    }
+  ],
   "faq": [
     [
       "Quais serviços de gesso a BelartGesso realiza?",
