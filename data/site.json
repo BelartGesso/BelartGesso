@@ -2,84 +2,106 @@
   "empresa": {
     "nome": "BelartGesso",
     "whatsapp": "5511976983978",
-    "redes": {
-      "tiktok": "https://www.tiktok.com/@belartgesso347"
-    }
+    "telefone": "5511976983978",
+    "url": "https://belartgesso.github.io/BelartGesso/",
+    "logo": "imagens/logo-belartgesso.jpg"
   },
+  "areas": [
+    "Itanhaém",
+    "Mongaguá",
+    "Praia Grande"
+  ],
+  "hero": {
+    "eyebrow": "Gesso e drywall na Baixada Santista",
+    "title": "Acabamento que valoriza o ambiente.",
+    "text": "Forros, sancas, drywall, iluminação e detalhes em gesso para casas, apartamentos e comércios."
+  },
+  "services": [
+    [
+      "forro",
+      "Forro de gesso",
+      "Forros lisos e rebaixamentos para organizar o teto e preparar a iluminação.",
+      "Mais pedido"
+    ],
+    [
+      "sanca",
+      "Sancas e molduras",
+      "Sancas abertas ou fechadas, molduras e detalhes para compor o ambiente.",
+      "Mais pedido"
+    ],
+    [
+      "drywall",
+      "Drywall e divisórias",
+      "Divisórias e soluções em drywall para criar ou reorganizar espaços.",
+      "Mais pedido"
+    ],
+    [
+      "led",
+      "Rasgo de luz e LED",
+      "Detalhes de iluminação integrados ao gesso para criar pontos de destaque.",
+      ""
+    ],
+    [
+      "nicho",
+      "Nichos e detalhes",
+      "Nichos, recortes e elementos sob medida para diferentes ambientes.",
+      ""
+    ],
+    [
+      "reparo",
+      "Reparos e acabamentos",
+      "Correções e acabamentos em gesso para complementar ou recuperar ambientes.",
+      ""
+    ],
+    [
+      "sanca-fechada",
+      "Sanca fechada",
+      "Soluções de sanca para acabamento mais discreto e composição com iluminação.",
+      ""
+    ],
+    [
+      "comercio",
+      "Gesso para comércios",
+      "Forros, divisórias e acabamentos para lojas, salas e outros espaços comerciais.",
+      ""
+    ]
+  ],
   "portfolio": [
     {
-      "arquivo": "forro-sala-itanhaem.jpg",
-      "titulo": "Forro com sanca iluminada - Itanhaém",
-      "categoria": "Forros",
-      "cidade": "Itanhaém",
-      "tipo": "foto",
-      "ordem": 1
-    },
-    {
-      "arquivo": "sanca-quarto-mongagua.jpg",
-      "titulo": "Sanca fechada com LED quente",
-      "categoria": "Sancas",
-      "cidade": "Mongaguá",
-      "tipo": "foto",
-      "ordem": 2
-    },
-    {
-      "arquivo": "drywall-sala-praia-grande.jpg",
-      "titulo": "Divisória drywall acústica",
-      "categoria": "Drywall",
-      "cidade": "Praia Grande",
-      "tipo": "foto",
-      "ordem": 3
-    },
-    {
-      "arquivo": "",
-      "titulo": "Forro gesso com LED - acabamento perfeito",
-      "categoria": "Iluminação",
-      "cidade": "Itanhaém",
-      "tipo": "video-url",
-      "url": "data/site.json",
-      "plataforma": "tiktok",
-      "ordem": 4
-    },
-    {
-      "arquivo": "",
-      "titulo": "Sanca aberta com cortineiro iluminado",
-      "categoria": "Sancas",
-      "cidade": "Mongaguá",
-      "tipo": "video-url",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525",
-      "plataforma": "tiktok",
-      "ordem": 5
-    },
-    {
-      "arquivo": "",
-      "titulo": "Drywall parede e forro - antes e depois",
-      "categoria": "Antes e Depois",
-      "cidade": "Praia Grande",
-      "tipo": "video-url",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7686789409198312725",
-      "plataforma": "tiktok",
-      "ordem": 6
-    },
-    {
-      "arquivo": "",
-      "titulo": "Forro rebaixado com spots",
+      "arquivo": "forro-led-luxo-1x1.webp",
+      "titulo": "Forro com Led",
       "categoria": "Forros",
       "cidade": "Itanhaém",
       "tipo": "video-url",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7688389853603466517",
-      "plataforma": "tiktok",
-      "ordem": 7
+      "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525?q=belartgesso&t=1791298793579",
+      "plataforma": "tiktok"
     },
     {
-      "arquivo": "image_20261006_182254.jpg",
-      "titulo": "Iluminação em gesso - LED quente",
-      "categoria": "Iluminação",
+      "arquivo": "",
+      "titulo": "🎵 TikTok @belartgesso347",
+      "categoria": "Forros",
       "cidade": "Itanhaém",
       "tipo": "video-url",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7686546726941232404",
-      "plataforma": "tiktok",
-      "ordem": 8
+      "url": "https://www.tiktok.com/@belartgesso347/video/",
+      "plataforma": "tiktok"
     }
+  ],
+  "faq": [
+    [
+      "Quais serviços de gesso a BelartGesso realiza?",
+      "A BelartGesso trabalha com forros de gesso, sancas, molduras, drywall, divisórias, rasgos de luz, detalhes em gesso, reparos e soluções para comércios."
+    ],
+    [
+      "Quais cidades são atendidas?",
+      "O atendimento é concentrado principalmente em Itanhaém, Mongaguá e Praia Grande. Para outras localidades próximas, consulte a disponibilidade pelo WhatsApp."
+    ],
+    [
+      "Posso enviar fotos do ambiente para pedir orçamento?",
+      "Sim. Envie fotos do ambiente, medidas aproximadas e explique o que pretende fazer. Isso ajuda a entender o serviço antes do atendimento."
+    ],
+    [
+      "O orçamento é personalizado?",
+      "Sim. O serviço depende de medidas, desenho do ambiente, acabamento e detalhes de iluminação, por isso a avaliação é feita de acordo com cada projeto."
+    ]
   ]
 }
