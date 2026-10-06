@@ -1,0 +1,1 @@
+MANTENHA a pasta imagens/ original da BelartGesso ao copiar esta versão. Este pacote contém apenas um marcador para não substituir os binários existentes.

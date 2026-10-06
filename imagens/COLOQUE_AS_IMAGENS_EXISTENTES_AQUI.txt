@@ -1,0 +1,3 @@
+Mantenha aqui a pasta imagens do repositório atual.
+A V3 referencia os arquivos existentes, como banner-forro-led.jpg e os trabalhos do trabalhos.json.
+Não apague suas fotos ao substituir os arquivos do site.
