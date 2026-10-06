@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 260 800 450" role="img" aria-labelledby="title desc"><title id="title">BelartGesso</title><desc id="desc">BelartGesso — Detalhes que transformam seu espaço</desc><rect width="1000" height="1000" fill="#fff"/><g fill="#132b4f"><path d="M260 405l105-105 105 105-28 28-77-77-77 77z"/><path d="M420 405l105-105 105 105-28 28-77-77-77 77z"/><text x="500" y="525" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="700">BelartGesso</text></g><text x="500" y="590" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="27" letter-spacing="2" fill="#5f6875">DETALHES QUE TRANSFORMAM SEU ESPAÇO</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 600" role="img" aria-labelledby="title desc">
+<title id="title">BelartGesso</title>
+<desc id="desc">BelartGesso — Detalhes que transformam seu espaço</desc>
+<rect width="1024" height="600" fill="#fff"/>
+<g fill="none" stroke="#173555" stroke-width="28" stroke-linecap="square" stroke-linejoin="miter">
+  <path d="M350 220 L512 100 L674 220"/>
+  <path d="M382 272 L512 176 L642 272"/>
+</g>
+<text x="512" y="400" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700" fill="#173555">BelartGesso</text>
+<text x="512" y="468" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" fill="#4b5563">Detalhes que transformam seu espaço</text>
+</svg>
