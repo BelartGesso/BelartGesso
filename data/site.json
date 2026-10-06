@@ -37,7 +37,7 @@
       "categoria": "Iluminação",
       "cidade": "Itanhaém",
       "tipo": "video-url",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7686546726941232404",
+      "url": "data/site.json",
       "plataforma": "tiktok",
       "ordem": 4
     },
@@ -72,12 +72,12 @@
       "ordem": 7
     },
     {
-      "arquivo": "",
+      "arquivo": "image_20261006_182254.jpg",
       "titulo": "Iluminação em gesso - LED quente",
       "categoria": "Iluminação",
       "cidade": "Itanhaém",
       "tipo": "video-url",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7689017515707534613",
+      "url": "https://www.tiktok.com/@belartgesso347/video/7686546726941232404",
       "plataforma": "tiktok",
       "ordem": 8
     }
