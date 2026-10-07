@@ -1,178 +1,118 @@
 {
   "redes": {
-    "instagram": "https://www.instagram.com/belartgesso",
     "tiktok": "https://www.tiktok.com/@belartgesso347",
-    "youtube": "https://www.youtube.com/@belartgesso",
-    "facebook": "https://www.facebook.com/belartgesso",
+    "instagram": "https://www.instagram.com/belartgesso",
     "whatsapp": "5511976983978"
-  },
-  "textos": {
-    "hero_titulo": "Transforme seu ambiente com gesso e drywall",
-    "hero_subtitulo": "Projetos e acabamentos para casas, apartamentos e comércios na Baixada Santista. Acabamento perfeito, obra limpa e prazo cumprido.",
-    "hero_cta": "Pedir orçamento no WhatsApp"
   },
   "servicos": [
     {
-      "id": "forro-liso",
-      "titulo": "Forro de gesso liso e rebaixamento",
-      "descricao": "Rebaixamento com acabamento perfeito.",
+      "id": "forro",
+      "titulo": "Forro de gesso",
+      "descricao": "Forro liso e rebaixamento",
       "icone": "🏗️",
-      "destaque": true,
       "ordem": 1
     },
     {
-      "id": "sancas",
-      "titulo": "Sancas e molduras iluminadas",
-      "descricao": "Sancas abertas, fechadas e invertidas com LED.",
+      "id": "sanca",
+      "titulo": "Sanca iluminada",
+      "descricao": "Sanca com LED",
       "icone": "✨",
-      "destaque": true,
       "ordem": 2
     },
     {
       "id": "drywall",
-      "titulo": "Drywall e divisórias",
-      "descricao": "Paredes, divisórias e forros em drywall.",
+      "titulo": "Drywall",
+      "descricao": "Divisórias",
       "icone": "🧱",
-      "destaque": true,
       "ordem": 3
-    },
-    {
-      "id": "rasgo-luz",
-      "titulo": "Rasgo de luz e LED embutido",
-      "descricao": "Detalhes de iluminação.",
-      "icone": "💡",
-      "ordem": 4
     }
   ],
   "itens": [
     {
       "tipo": "foto",
-      "arquivo": "forro-sala-itanhaem.jpg",
+      "arquivo": "sanca-sala-estar.jpg",
       "thumbnail": "",
-      "legenda": "Forro com sanca iluminada - Itanhaém",
-      "categoria": "Forros",
-      "cidade": "Itanhaém",
-      "destaque": true,
+      "id": "",
+      "url": "",
+      "legenda": "Sanca fechada com LED quente",
+      "categoria": "Sancas",
+      "cidade": "Mongaguá",
+      "destaque": false,
       "ordem": 1
     },
     {
       "tipo": "foto",
       "arquivo": "sanca-quarto-mongagua.jpg",
       "thumbnail": "",
-      "legenda": "Sanca fechada com LED quente",
-      "categoria": "Sancas",
-      "cidade": "Mongaguá",
-      "destaque": true,
+      "id": "",
+      "url": "",
+      "legenda": "Divisória drywall acústica",
+      "categoria": "Drywall",
+      "cidade": "Praia Grande",
+      "destaque": false,
       "ordem": 2
     },
     {
       "tipo": "foto",
-      "arquivo": "drywall-sala-praia-grande.jpg",
+      "arquivo": "forro-cozinha.jpg",
       "thumbnail": "",
-      "legenda": "Divisória drywall acústica",
-      "categoria": "Drywall",
-      "cidade": "Praia Grande",
-      "destaque": true,
+      "id": "",
+      "url": "",
+      "legenda": "Rasgo de luz no corredor",
+      "categoria": "Iluminação",
+      "cidade": "Itanhaém",
+      "destaque": false,
       "ordem": 3
     },
     {
-      "tipo": "video",
-      "arquivo": "rasgo-luz-corredor.mp4",
-      "thumbnail": "forro-sala-itanhaem.jpg",
-      "legenda": "Rasgo de luz no corredor - com miniatura",
+      "tipo": "foto",
+      "arquivo": "forro-led-luxo-1x1.webp",
+      "thumbnail": "",
+      "id": "7686546726941232404",
+      "url": "https://www.tiktok.com/@belartgesso347/video/7686546726941232404",
+      "legenda": "🎵 Forro gesso com LED - TikTok",
       "categoria": "Iluminação",
       "cidade": "Itanhaém",
+      "destaque": false,
       "ordem": 4
+    },
+    {
+      "tipo": "foto",
+      "arquivo": "images.jpeg",
+      "thumbnail": "",
+      "id": "7686549713327541525",
+      "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525",
+      "legenda": "🎵 Sanca aberta - TikTok",
+      "categoria": "Sancas",
+      "cidade": "Mongaguá",
+      "destaque": false,
+      "ordem": 5
+    },
+    {
+      "tipo": "tiktok",
+      "arquivo": "drywall-sala-praia-grande.jpg",
+      "thumbnail": "drywall-sala-praia-grande.jpg",
+      "id": "7686789409198312725",
+      "url": "https://www.tiktok.com/@belartgesso347/video/7686789409198312725",
+      "legenda": "🎵 Drywall antes e depois - TikTok",
+      "categoria": "Antes e Depois",
+      "cidade": "Praia Grande",
+      "destaque": false,
+      "ordem": 6
     },
     {
       "tipo": "foto",
       "arquivo": "antes-depois-sala.jpg",
       "thumbnail": "",
-      "legenda": "Antes e depois - rebaixamento completo",
-      "categoria": "Antes e Depois",
-      "cidade": "Mongaguá",
-      "destaque": true,
-      "ordem": 5
-    },
-    {
-      "tipo": "tiktok",
-      "id": "7686546726941232404",
-      "arquivo": "forro-sala-itanhaem.jpg",
-      "thumbnail": "forro-sala-itanhaem.jpg",
-      "legenda": "Forro gesso com LED - acabamento perfeito Itanhaém",
-      "categoria": "Iluminação",
-      "cidade": "Itanhaém",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7686546726941232404",
-      "ordem": 6
-    },
-    {
-      "tipo": "tiktok",
-      "id": "7686549713327541525",
-      "arquivo": "sanca-quarto-mongagua.jpg",
-      "thumbnail": "sanca-quarto-mongagua.jpg",
-      "legenda": "Sanca aberta com cortineiro iluminado - Mongaguá",
-      "categoria": "Sancas",
-      "cidade": "Mongaguá",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525",
-      "ordem": 7
-    },
-    {
-      "tipo": "tiktok",
-      "id": "7686789409198312725",
-      "arquivo": "drywall-sala-praia-grande.jpg",
-      "thumbnail": "drywall-sala-praia-grande.jpg",
-      "legenda": "Drywall parede e forro - antes e depois Praia Grande",
-      "categoria": "Antes e Depois",
-      "cidade": "Praia Grande",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7686789409198312725",
-      "ordem": 8
-    },
-    {
-      "tipo": "tiktok",
-      "id": "7688389853603466517",
-      "arquivo": "forro-cozinha.jpg",
-      "thumbnail": "forro-cozinha.jpg",
-      "legenda": "Forro rebaixado com spots - sala pronta Itanhaém",
-      "categoria": "Forros",
-      "cidade": "Itanhaém",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7688389853603466517",
-      "ordem": 9
-    },
-    {
-      "tipo": "tiktok",
       "id": "7689017515707534613",
-      "arquivo": "nicho-banheiro.jpg",
-      "thumbnail": "nicho-banheiro.jpg",
-      "legenda": "Iluminação em gesso - LED quente aconchegante",
+      "url": "https://www.tiktok.com/@belartgesso347/video/7689017515707534613",
+      "legenda": "🎵 Iluminação LED quente - TikTok",
       "categoria": "Iluminação",
       "cidade": "Itanhaém",
-      "url": "https://www.tiktok.com/@belartgesso347/video/7689017515707534613",
-      "ordem": 10
+      "destaque": false,
+      "ordem": 7
     }
   ],
-  "depoimentos": [
-    {
-      "nome": "Mariana S.",
-      "cidade": "Itanhaém - Gaivota",
-      "texto": "Acabamento impecável, deixaram tudo limpo.",
-      "estrelas": 5
-    },
-    {
-      "nome": "Rafael M.",
-      "cidade": "Mongaguá - Centro",
-      "texto": "Orçamento no mesmo dia e prazo cumprido.",
-      "estrelas": 5
-    }
-  ],
-  "faq": [
-    {
-      "pergunta": "Quanto tempo leva um forro de gesso?",
-      "resposta": "Uma sala de 20m² leva 1 dia para instalação e 1 dia para acabamento."
-    }
-  ],
-  "banners": [
-    "banner-forro-led.jpg",
-    "banner-sanca-iluminada.jpg",
-    "banner-drywall.jpg"
-  ]
+  "depoimentos": [],
+  "faq": []
 }
