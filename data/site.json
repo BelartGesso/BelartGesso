@@ -4,7 +4,7 @@
     "whatsapp": "5511976983978",
     "telefone": "5511976983978",
     "url": "https://belartgesso.github.io/BelartGesso/",
-    "logo": "imagens/logo-belartgesso.svg"
+    "logo": "imagens/logo-belartgesso.jpg"
   },
   "areas": [
     "Itanhaém",
@@ -69,23 +69,38 @@
   "portfolio": [
     {
       "arquivo": "",
-      "miniatura": "Forro-Geométrico-LED.png",
-      "titulo": "Forro com  Led",
+      "titulo": "Forro com iluminação",
       "categoria": "Forros",
       "cidade": "Itanhaém",
-      "tipo": "video-url",
       "url": "https://www.tiktok.com/@belartgesso347/video/7686549713327541525?q=belartgesso&t=1791298793579",
-      "plataforma": "tiktok"
+      "tipo": "video-url"
     },
     {
-      "arquivo": "drywall-sala-praia-grande.jpg",
-      "titulo": "Antes e Depois",
-      "categoria": "Forros",
-      "cidade": "Itanhaém",
-      "tipo": "antes-depois",
-      "url": "",
-      "plataforma": "tiktok"
+      "arquivo": "antes-depois-sala---copia.jpg",
+      "titulo": "Antes e depois de sala",
+      "categoria": "Antes e Depois",
+      "cidade": "Itanhaém"
+    },
+    {
+      "arquivo": "lustre-cristal-branco-uniforme-1x1.webp",
+      "titulo": "Detalhe de iluminação",
+      "categoria": "Iluminação",
+      "cidade": "Mongaguá"
     }
+  ],
+  "reviews": [
+    [
+      "Cliente BelartGesso",
+      "Atendimento direto e orientação para definir a solução do ambiente."
+    ],
+    [
+      "Projeto residencial",
+      "A proposta foi organizada de acordo com o ambiente e o resultado esperado."
+    ],
+    [
+      "Projeto comercial",
+      "Solução pensada para acabamento e aproveitamento do espaço."
+    ]
   ],
   "faq": [
     [

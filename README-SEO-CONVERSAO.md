@@ -1,12 +1,20 @@
-# BelartGesso — SEO local + orçamento
+# BelartGesso — SEO local + geração de orçamento
 
-## Páginas
-- Gerais: index, portfolio, admin
-- Por cidade: gesso-em-itanhaem / mongagua / praia-grande
-- Por serviço e cidade (3 cidades x 3 serviços): drywall-em-*, forro-de-gesso-em-*, sanca-de-gesso-em-*
+Esta versão amplia a V3 com foco em buscas locais e conversão.
 
-## Estrutura de pastas
-`css/style.css`, `js/app.js`, `data/site.json`, `imagens/` (mantenha a existente, incluindo `logo-belartgesso.jpg` e `favicon.ico`).
+### Páginas locais
+- gesso-em-itanhaem.html
+- gesso-em-mongagua.html
+- gesso-em-praia-grande.html
 
-## Depois do deploy
-Confirme a URL do GitHub Pages (canonicals, sitemap e robots) e envie `sitemap.xml` ao Google Search Console.
+### Páginas por serviço/intenção
+- drywall-em-itanhaem.html
+- forro-de-gesso-em-itanhaem.html
+- sanca-de-gesso-em-itanhaem.html
+
+### Importante
+Preserve a pasta `imagens/` existente do repositório. O pacote não substitui as imagens binárias.
+
+Antes do deploy, confirme se `https://belartgesso.github.io/BelartGesso/` é realmente a URL do GitHub Pages. Se for diferente, atualize canonicals e sitemap.
+
+Depois do deploy, envie o sitemap ao Google Search Console.
