@@ -1,253 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-<title>Vitrine Ivan C Melo - Ofertas e Achadinhos</title>
-<meta name="description" content="Vitrine oficial Ivan C Melo: achadinhos com ofertas em ferramentas e áudio. Cupom IVAN10 e atendimento pelo WhatsApp."/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0a;--card:#151515;--border:#242424;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffe600;--green:#25d366}
-body{background:var(--bg);color:#fff;font-family:Inter,system-ui,sans-serif;line-height:1.4}
-.version-badge{background:#fff;color:#000;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:900;margin-left:8px;vertical-align:middle}
-.banner{background:var(--yellow);color:#000;text-align:center;padding:12px 14px;font-weight:800;font-size:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;border-bottom:2px solid #000}
-.banner b{background:#000;color:var(--yellow);padding:3px 8px;border-radius:6px}
-.header{background:linear-gradient(90deg,var(--pink),var(--cyan));padding:24px 16px;text-align:center}
-.header h1{font-size:22px;font-weight:900} .header p{opacity:.95;margin-top:8px;font-size:12px;font-weight:600}
-.header .v6note{background:#000;color:var(--yellow);display:inline-block;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:900;margin-top:10px;border:1px solid var(--yellow)}
-.header .stats{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
-.header .stat{background:rgba(0,0,0,.4);backdrop-filter:blur(8px);padding:7px 12px;border-radius:999px;font-size:11px;font-weight:800;border:1px solid rgba(255,255,255,.2)}
-.controls{max-width:1240px;margin:0 auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;background:var(--bg);position:sticky;top:0;z-index:40;border-bottom:1px solid var(--border)}
-.controls-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.search-wrap{flex:1;min-width:200px;position:relative;display:flex;gap:8px}
-.search-wrap input{flex:1;background:var(--card);border:2px solid var(--pink);border-radius:12px;padding:12px 14px 12px 38px;color:#fff;outline:none;font-size:14px;width:100%}
-.search-wrap::before{content:"🔎";position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px}
-.search-wrap .clear{background:var(--border);border:0;color:#fff;padding:0 12px;border-radius:10px;cursor:pointer;font-weight:800;display:none}
-.search-wrap.has-value .clear{display:block}
-.filters{display:flex;gap:6px;flex-wrap:wrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
-.filters::-webkit-scrollbar{display:none}
-.fbtn{background:var(--card);border:1px solid var(--border);color:#888;padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px;white-space:nowrap;flex-shrink:0}
-.fbtn.active{background:#fff;color:#000;border-color:#fff}
-.fbtn.oferta{background:var(--pink);color:#fff;border-color:var(--pink);font-weight:900} .fbtn.oferta.active{background:#fff;color:var(--pink)}
-.sort{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:#fff;font-size:12px;outline:none;min-width:150px}
-.prova{max-width:1240px;margin:0 auto;padding:10px 12px;text-align:center;color:#888;font-size:11px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;background:#111;border-bottom:1px solid var(--border)}
-.prova b{color:#fff}
-.grid{max-width:1240px;margin:0 auto;padding:12px;display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
-.card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.2s;position:relative}
-.card:hover{transform:translateY(-2px);border-color:var(--cyan)}
-.card.oferta{border:2px solid var(--pink);box-shadow:0 0 0 2px rgba(254,44,85,.15)}
-.card.fav{border-color:var(--yellow)}
-.thumb{height:240px;width:100%;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.thumb img{max-width:92%;max-height:92%;object-fit:contain;transition:.3s} .card:hover .thumb img{transform:scale(1.03)}
-.badge{position:absolute;top:10px;left:10px;background:var(--pink);color:#fff;padding:6px 10px;border-radius:999px;font-size:10px;font-weight:900;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.discount{position:absolute;top:10px;right:44px;background:#000;color:var(--yellow);padding:6px 10px;border-radius:999px;font-size:11px;font-weight:900;z-index:2;border:1px solid var(--yellow)}
-.fav-btn{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;z-index:3}
-.fav-btn.active{background:var(--yellow);color:#000;border-color:var(--yellow)}
-.live{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.85);color:var(--cyan);padding:4px 8px;border-radius:999px;font-size:9px;font-weight:800;border:1px solid var(--cyan)}
-.info{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
-.cat{color:#888;font-size:10px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:space-between}
-.cat .marca{background:var(--border);padding:3px 6px;border-radius:4px;color:#fff;font-weight:900}
-.avaliacao{color:var(--yellow);font-weight:800;font-size:11px;display:inline-flex;align-items:center;gap:3px}
-.nome{font-weight:700;line-height:1.25;font-size:14px;min-height:52px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.preco-wrap{display:flex;flex-direction:column;gap:3px;background:#0f0f0f;padding:8px;border-radius:10px;border:1px solid #222}
-.preco-de{color:#888;font-size:13px;text-decoration:line-through}
-.preco-atual{color:var(--cyan);font-weight:900;font-size:24px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.preco-atual.oferta{color:var(--pink)}
-.estoque{font-size:10px;font-weight:700} .estoque.ok{color:var(--green)} .estoque.off{color:var(--pink)}
-.code{background:#1e1e1e;color:#aaa;font-size:11px;padding:8px 10px;border-radius:999px;display:flex;justify-content:space-between;align-items:center;border:1px dashed #333}
-.code b{color:var(--yellow)}
-.btns{display:flex;flex-direction:column;gap:7px;margin-top:4px}
-.btn{display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;padding:13px;border-radius:11px;text-decoration:none;font-weight:800;font-size:13px;cursor:pointer;border:0;transition:.15s;min-height:46px}
-.btn:active{transform:scale(.98)}
-.btn.tk{background:var(--pink);color:#fff} .btn.ml{background:var(--yellow);color:#000} .btn.sp{background:#ee4d2d;color:#fff} .btn.zp{background:var(--green);color:#fff} .btn.share{background:var(--card);border:1px solid var(--border);color:#888}
-.wa-float{position:fixed;right:14px;bottom:14px;background:var(--green);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;z-index:99;box-shadow:0 8px 24px rgba(37,211,102,.35)}
-.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:12px 18px;border-radius:999px;font-weight:800;font-size:13px;z-index:9999;display:none;box-shadow:0 10px 30px rgba(0,0,0,.4);max-width:90%;text-align:center}
-.empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:#666}
-.footer{text-align:center;color:#555;padding:30px 20px 90px;font-size:11px;line-height:1.6}
-.highlight{background:var(--yellow);color:#000;padding:1px 4px;border-radius:4px;font-weight:900}
-.avatar{width:104px;height:104px;border-radius:50%;object-fit:cover;border:3px solid #fff;display:block;margin:0 auto 12px;box-shadow:0 6px 20px rgba(0,0,0,.35);background:#222}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BelartGesso | Gesso, Sancas, Drywall e Iluminação</title>
+<meta name="description" content="BelartGesso: forro de gesso, sancas, drywall, rasgo de luz, nichos e reparos em Itanhaém, Mongaguá e Praia Grande.">
+<link rel="canonical" href="https://belartgesso.github.io/BelartGesso/">
+<link rel="icon" type="image/svg+xml" href="imagens/logo-belartgesso.svg">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json" id="schema"></script>
 </head>
 <body>
-<div class="banner"><span>🎉 CUPOM: <b>IVAN10</b> TikTok | ML: <b>WPNN5W-3R8V</b> <a href="https://meli.la/2MoxWGy" target="_blank" style="color:#000;text-decoration:underline">meli.la/2MoxWGy</a> | ZAP: <b>(11) 97698-3978</b></span></div>
-<div class="header">
-<img class="avatar" src="./foto-ivan.jpg" alt="Foto de Ivan C Melo" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://github.com/ivancm347.png';}else{this.style.display='none';}">
-<h1>VITRINE OFICIAL • IVAN C MELO</h1>
-<p>@ivan_c_melo • Achadinhos com Ofertas Reais - Busca por Marca, Categoria, Descrição</p>
-<div class="stats">
-<span class="stat" id="stat-produtos">5 produtos</span>
-<span class="stat" id="stat-ofertas">4 ofertas</span>
-<span class="stat" id="stat-categorias">2 categorias</span>
-</div>
-</div>
-<div class="controls">
-<div class="controls-row">
-<div class="search-wrap" id="searchWrap"><input id="search" placeholder="Buscar por nome, marca ou categoria..." autocomplete="off" aria-label="Campo de busca de produtos"/><button class="clear" onclick="clearSearch()" aria-label="Limpar pesquisa">✕</button></div>
-<select class="sort" id="sort" onchange="render()" aria-label="Ordenar produtos"><option value="relevancia">🔥 Relevância (ofertas topo)</option><option value="menor">💰 Menor preço</option><option value="maior">💎 Maior preço</option><option value="desconto">📉 Maior desconto</option><option value="nome">🔤 Nome A-Z</option></select>
-</div>
-<div class="controls-row"><div class="filters" id="filters"></div></div>
-</div>
-<div class="prova"><span>🛒 Compra direto na loja oficial</span><span>💬 Dúvidas? Chame no Zap (11) 97698-3978</span><span>❤️ Favoritos salvos neste aparelho</span></div>
-<div class="grid" id="grid"></div>
-<div class="footer">Vitrine Ivan C Melo • @ivan_c_melo • Zap (11) 97698-3978<br/>Como afiliado, posso receber comissão pelas compras feitas pelos links, sem custo extra para você. Preços e estoque podem mudar nas lojas.</div>
-<div class="toast" id="toast"></div>
-<a class="wa-float" href="https://wa.me/5511976983978?text=Ol%C3%A1%20Ivan!%20Vi%20sua%20vitrine%20https://belartgesso.github.io/BelartGesso/" target="_blank" title="Atendimento via WhatsApp (11) 97698-3978" aria-label="Conversar no WhatsApp">💬</a>
-<script>
-const PRODUTOS_EMBUTIDOS = [
-  {"id": "pinador-ingco-20v", "nome": "Pinador para Concreto a Bateria 20V Brushless da INGCO", "categoria": "Ferramentas", "marca": "INGCO", "preco_de": 5590.00, "preco": 4232.00, "estoque": true, "destaque": true, "badge": "OFERTA -24%", "descricao": "Pinador INGCO 20V Brushless para concreto, potente e sem fio - 4.232 vendas - Ideal para construção e acabamento", "imagem": "pinador-42v.jpg", "imagem_alt": "Pinador para Concreto INGCO 20V", "links": {"tiktok": "https://shop.tiktok.com/br/search?keyword=INGCO%20pinador", "shopee": "", "mercado_livre": ""}, "cupom": "IVAN10", "avaliacao": 4.9, "whatsapp": "5511976983978"},
-  {"id": "chave-ryoku-600nm", "nome": "Chave De Impacto Brushless 600 Nm 2 Baterias 21v Sem Fio RYOKU Com Maleta", "categoria": "Ferramentas", "marca": "RYOKU", "preco_de": 350.00, "preco": 230.00, "estoque": true, "destaque": true, "badge": "OFERTA -34%", "descricao": "Chave de Impacto Ryoku 600Nm 520N.m com 2 baterias 21V - ideal para mecânica e uso profissional", "imagem": "chave-de-impacto-ryoku.jpg", "imagem_alt": "Chave De Impacto RYOKU 600Nm", "links": {"tiktok": "https://shop.tiktok.com/br/pdp/1734498300958050085?_t=ZS-9ADVkI84UAH", "shopee": "", "mercado_livre": ""}, "cupom": "IVAN10", "avaliacao": 4.8, "whatsapp": "5511976983978"},
-  {"id": "kit-v8-bm800", "nome": "Kit Completo Interface Mesa V8 + Microfone Bm800 Com Braço Articulado", "categoria": "Áudio", "marca": "BM800", "preco_de": 250.00, "preco": 140.98, "estoque": true, "destaque": false, "badge": "Mais Vendido", "descricao": "Kit Microfone Condensador BM800 com placa V8, suporte e espuma - qualidade estúdio para podcast e live", "imagem": "kit_microfone_transparente.png", "imagem_alt": "Kit Interface Mesa V8 + Microfone BM800", "links": {"tiktok": "https://shop.tiktok.com/br/pdp/1735385374513988883?_t=ZS-9ACfwPSMclh", "shopee": "", "mercado_livre": ""}, "cupom": "IVAN10", "avaliacao": 4.8, "whatsapp": "5511976983978"},
-  {"id": "lapela-kaidi-duplo", "nome": "Microfone Profissional Sem Fio Duplo Lapela Kaidi para iPhone/Android", "categoria": "Áudio", "marca": "Kaidi", "preco_de": 129.90, "preco": 39.00, "estoque": true, "destaque": true, "badge": "OFERTA -70%", "descricao": "Microfone de Lapela Alpha Gold duplo sem fio - som limpo para gravações, entrevistas e TikTok", "imagem": "fone-de-lapela.jpg", "imagem_alt": "Microfone de Lapela Kaidi Duplo Sem Fio", "links": {"tiktok": "https://shop.tiktok.com/br/pdp/1735440614844172013?_t=ZS-9AChH7drl2q", "shopee": "", "mercado_livre": ""}, "cupom": "IVAN10", "avaliacao": 4.7, "whatsapp": "5511976983978"},
-  {"id": "parafusadeira-16-8v", "nome": "Parafusadeira 16.8V Brushless Impacto Sem Fio 2.0Ah Bivolt Azul Petróleo", "categoria": "Ferramentas", "marca": "Hanabi", "preco_de": 199.90, "preco": 149.90, "estoque": true, "destaque": true, "badge": "COMBO ML", "descricao": "Parafusadeira Hanabi 16.8V Brushless com 2 baterias - código ML WPNN5W-3R8V meli.la/2MoxWGy", "imagem": "hanabi-3006.jpg", "imagem_alt": "Parafusadeira Hanabi 16.8V Brushless", "links": {"tiktok": "https://shop.tiktok.com/br/pdp/1733726957123503408?_t=ZS-9ACiUc6W7SG", "shopee": "", "mercado_livre": "https://meli.la/2MoxWGy"}, "cupom": "WPNN5W-3R8V", "avaliacao": 4.8, "whatsapp": "5511976983978"}
-];
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="./"><img class="brand-logo" src="imagens/logo-belartgesso.svg" alt="BelartGesso — Detalhes que transformam seu espaço"></a>
+    <nav id="main-nav" class="main-nav">
+      <a href="#servicos">Serviços</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a href="#regioes">Regiões</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="button button-small js-wa" href="#">Pedir orçamento</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+  </div>
+</header>
 
-let produtos = PRODUTOS_EMBUTIDOS.slice();
-let catAtiva = 'Todos';
-let favAtiva = false;
-const ZAP_PADRAO = '5511976983978';
-
-function normalizeStr(str){
-  return (str || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-}
-function formatPreco(v){ return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v); }
-function calcDesconto(de, atual){ if(!de || de<=atual) return 0; return Math.round((1-atual/de)*100); }
-function getClicks(){ try{return JSON.parse(localStorage.getItem('vitrine_clicks')||'{}');}catch{return {};}}
-function addClick(prodId, plataforma){
-  try{ _addClick(prodId, plataforma); }catch(e){}
-}
-function _addClick(prodId, plataforma){
-  const clicks = getClicks();
-  if(!clicks[prodId]) clicks[prodId] = {tiktok:0, shopee:0, mercado_livre:0, whatsapp:0, total:0};
-  clicks[prodId][plataforma] = (clicks[prodId][plataforma]||0)+1;
-  clicks[prodId].total = (clicks[prodId].tiktok||0)+(clicks[prodId].shopee||0)+(clicks[prodId].mercado_livre||0)+(clicks[prodId].whatsapp||0);
-  localStorage.setItem('vitrine_clicks', JSON.stringify(clicks));
-  const tot = Object.values(clicks).reduce((s,c)=>s+(c.total||0),0);
-  localStorage.setItem('vitrine_clicks_total', tot);
-}
-function getFavs(){ try{return JSON.parse(localStorage.getItem('vitrine_favs')||'[]');}catch{return [];}}
-function toggleFav(id){
-  let favs = getFavs();
-  if(favs.includes(id)){ favs = favs.filter(f=>f!==id); toast('💔 Removido dos favoritos'); }
-  else { favs.push(id); toast('❤️ Adicionado aos favoritos - veja no filtro Favoritos'); }
-  localStorage.setItem('vitrine_favs', JSON.stringify(favs));
-  render(); buildFilters();
-}
-function isFav(id){ return getFavs().includes(id); }
-function updateStats(){
-  const cats = [...new Set(produtos.map(p=>p.categoria))];
-  const ofertas = produtos.filter(p=>p.preco_de>0 && p.preco_de>p.preco).length;
-  document.getElementById('stat-produtos').textContent = produtos.length+' produtos';
-  document.getElementById('stat-ofertas').textContent = ofertas+' ofertas';
-  document.getElementById('stat-categorias').textContent = cats.length+' categorias';
-}
-function getCategorias(){
-  const map={}; produtos.forEach(p=>{ map[p.categoria]=(map[p.categoria]||0)+1; }); return map;
-}
-function buildFilters(){
-  const cats = getCategorias(); const f = document.getElementById('filters'); f.innerHTML='';
-  const all = document.createElement('button'); all.className='fbtn '+(catAtiva==='Todos'&&!favAtiva?'active':''); all.textContent='Todos '+produtos.length; all.onclick=()=>{catAtiva='Todos'; favAtiva=false; buildFilters(); render();}; f.appendChild(all);
-  const ofertasCount = produtos.filter(p=>p.preco_de>0 && p.preco_de>p.preco).length;
-  if(ofertasCount>0){
-    const b=document.createElement('button'); b.className='fbtn oferta '+ (catAtiva==='Ofertas'?'active':''); b.textContent='🔥 Ofertas '+ofertasCount; b.onclick=()=>{catAtiva='Ofertas'; favAtiva=false; buildFilters(); render();}; f.appendChild(b);
-  }
-  const favs = getFavs(); if(favs.length>0){ const b=document.createElement('button'); b.className='fbtn '+(favAtiva?'active':''); b.style.background=favAtiva?'#ffe600':'var(--card)'; b.style.color=favAtiva?'#000':'#888'; b.textContent='❤️ Favoritos '+favs.length; b.onclick=()=>{favAtiva=!favAtiva; buildFilters(); render();}; f.appendChild(b); }
-  Object.keys(cats).forEach(cat=>{ const b=document.createElement('button'); b.className='fbtn '+(catAtiva===cat&&!favAtiva?'active':''); b.textContent=cat+' '+cats[cat]; b.onclick=()=>{catAtiva=cat; favAtiva=false; buildFilters(); render();}; f.appendChild(b); });
-}
-function getFiltered(){
-  const q = normalizeStr(document.getElementById('search').value);
-  let list = produtos.slice();
-  if(favAtiva){ const favs=getFavs(); list=list.filter(p=>favs.includes(p.id)); }
-  if(catAtiva==='Ofertas'){ list=list.filter(p=>p.preco_de>0 && p.preco_de>p.preco); }
-  else if(catAtiva!=='Todos'){ list=list.filter(p=>p.categoria===catAtiva); }
-  if(q){
-    list=list.filter(p=>{
-      const hay = normalizeStr(p.nome+' '+p.categoria+' '+(p.marca||'')+' '+(p.descricao||'')+' '+(p.badge||''));
-      return hay.includes(q);
-    });
-  }
-  const sort = document.getElementById('sort').value;
-  if(sort==='menor'){ list.sort((a,b)=>a.preco-b.preco); }
-  else if(sort==='maior'){ list.sort((a,b)=>b.preco-a.preco); }
-  else if(sort==='desconto'){ list.sort((a,b)=>calcDesconto(b.preco_de,b.preco)-calcDesconto(a.preco_de,a.preco)); }
-  else if(sort==='nome'){ list.sort((a,b)=>a.nome.localeCompare(b.nome)); }
-  else { list.sort((a,b)=>{ if(a.destaque!==b.destaque) return b.destaque-a.destaque; const da=calcDesconto(a.preco_de,a.preco), db=calcDesconto(b.preco_de,b.preco); if(da!==db) return db-da; return 0; }); }
-  return list;
-}
-function imgHTML(p){
-  const file = (p.imagem||'').trim();
-  if(!file) return '<div style="font-size:48px">🛍️</div>';
-  const src = './'+encodeURIComponent(file).replace(/%2F/g,'/');
-  return '<img src="'+src+'" alt="'+(p.imagem_alt || p.nome || '').replace(/"/g,'')+'" loading="lazy" width="200" height="200" onerror="this.outerHTML=\'<div style=&quot;font-size:48px&quot;>🛍️</div>\'">';
-}
-function toast(msg){
-  const t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(window._toast); window._toast=setTimeout(()=>t.style.display='none',2500);
-}
-function compartilhar(p){
-  const texto = p.nome+' - '+formatPreco(p.preco)+' - Vitrine Ivan C Melo https://belartgesso.github.io/BelartGesso/';
-  if(navigator.share){ navigator.share({title:p.nome, text:texto, url:'https://belartgesso.github.io/BelartGesso/'}).catch(()=>{}); }
-  else { navigator.clipboard.writeText(texto).then(()=>toast('📤 Link copiado! Cole no WhatsApp')).catch(()=>toast(texto)); }
-  addClick(p.id,'whatsapp');
-}
-function copiarCupom(btn, cupom){
-  navigator.clipboard.writeText(cupom).then(()=>{
-    toast('✅ Cupom copiado!');
-    const originalText = btn.textContent;
-    btn.textContent = 'Copiado!';
-    setTimeout(() => { btn.textContent = originalText; }, 2000);
-  }).catch(()=>toast('Cupom: '+cupom));
-}
-function render(){
-  const list = getFiltered();
-  const grid=document.getElementById('grid'); grid.innerHTML='';
-  const searchWrap=document.getElementById('searchWrap');
-  if(searchWrap) searchWrap.classList.toggle('has-value', !!document.getElementById('search').value);
-  if(list.length===0){ grid.innerHTML='<div class="empty">🔍 Nenhum produto encontrado<br><small>Tente buscar: <span class=highlight>INGCO</span> <span class=highlight>RYOKU</span> <span class=highlight>Ferramentas</span> <span class=highlight>Áudio</span> <span class=highlight>20V</span></small></div>'; return; }
-  list.forEach(p=>{
-    const desc = calcDesconto(p.preco_de, p.preco);
-    const fav = isFav(p.id);
-    const tk = p.links?.tiktok||''; const ml = p.links?.mercado_livre||''; const sp = p.links?.shopee||'';
-    const zap = p.whatsapp||ZAP_PADRAO;
-    const hasDe = p.preco_de>0 && p.preco_de>p.preco;
-    const card=document.createElement('div'); card.className='card '+(hasDe?'oferta':'')+' '+(fav?'fav':'');
-    card.innerHTML=`
-      <div class="thumb">
-        <span class="badge">${(hasDe&&/^OFERTA/i.test(p.badge||''))?'OFERTA -'+desc+'%':(p.badge||p.categoria)} ${hasDe?'🔥':''}</span>
-        <button class="fav-btn ${fav?'active':''}" onclick="toggleFav('${p.id}')" title="Favoritar" aria-label="Favoritar produto"> ${fav?'❤️':'🤍'} </button>
-        ${imgHTML(p)}
+<main>
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <p class="eyebrow" id="hero-eyebrow"></p>
+      <h1 id="hero-title"></h1>
+      <p class="lead" id="hero-text"></p>
+      <div class="actions">
+        <a class="button button-cream js-wa" href="#">Pedir orçamento pelo WhatsApp ↗</a>
+        <a class="button button-light" href="portfolio.html">Ver portfólio</a>
       </div>
-      <div class="info">
-        <div class="cat">
-          <div><span>${p.categoria}</span>${p.marca?' <span class="marca">MARCA: '+p.marca+'</span>':''}</div>
-          ${p.avaliacao ? `<div class="avaliacao">⭐ ${p.avaliacao}</div>` : ''}
-        </div>
-        <div class="nome">${p.nome}</div>
-        <div class="preco-wrap">
-          ${hasDe?'<span class="preco-de">De: '+formatPreco(p.preco_de)+'</span>':''}
-          <span class="preco-atual ${hasDe?'oferta':''}">Por: ${formatPreco(p.preco)} ${hasDe?'<small style="font-size:12px;background:#fe2c55;color:#fff;padding:3px 8px;border-radius:6px">-'+desc+'% OFF</small>':''}</span>
-        </div>
-        <div class="estoque ${p.estoque?'ok':'off'}">${p.estoque?'✅ Em estoque':'❌ Sem estoque'} ${p.destaque?'• 🔥 Destaque':''}</div>
-        ${p.cupom?'<div class="code"><span>🎟️ Cupom: <b>'+p.cupom+'</b></span><button class="fbtn" style="padding:4px 8px;background:var(--yellow);color:#000;border:0;font-size:10px" onclick="copiarCupom(this, \''+p.cupom+'\')">Copiar</button></div>':''}
-        <div class="btns">
-          ${tk?'<a class="btn tk" href="'+tk+'" target="_blank" onclick="addClick(\''+p.id+'\',\'tiktok\')">🛒 TikTok Shop</a>':''}
-          ${sp?'<a class="btn sp" href="'+sp+'" target="_blank" rel="noopener" onclick="addClick(\''+p.id+'\',\'shopee\')">🧡 Shopee</a>':''}
-          ${ml?'<a class="btn ml" href="'+ml+'" target="_blank" onclick="addClick(\''+p.id+'\',\'mercado_livre\')">💛 Mercado Livre</a>':''}
-          <a class="btn zp" href="https://wa.me/${zap}?text=${encodeURIComponent('Olá Ivan! Vi '+p.nome+' - '+formatPreco(p.preco)+' na sua vitrine https://belartgesso.github.io/BelartGesso/')}" target="_blank" onclick="addClick('${p.id}','whatsapp')">💬 Zap (11) 97698-3978</a>
-          <button class="btn share" onclick="compartilhar(produtos.find(x=>x.id==='${p.id}'))">📤 Compartilhar</button>
-        </div>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-function clearSearch(){ document.getElementById('search').value=''; render(); }
-document.getElementById('search').addEventListener('input', render);
-updateStats(); buildFilters(); render();
-fetch('./produtos.json?v='+Date.now(),{cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(data=>{
-  if(Array.isArray(data) && data.length>0){
-    produtos=data; updateStats(); buildFilters(); render(); 
-  }
-}).catch(e=>{console.log('produtos.json nao carregou, usando embutidos',e);});
-</script>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-inner"><span>BelartGesso</span><small>Forros • Sancas • Drywall • Iluminação</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="container">
+    <div class="section-head"><div><p class="eyebrow">Soluções</p><h2>Serviços para transformar seu ambiente.</h2></div></div>
+    <div id="services-grid" class="grid-8"></div>
+  </div>
+</section>
+
+<section class="section-dark" id="portfolio">
+  <div class="container">
+    <div class="section-head"><div><p class="eyebrow">Portfólio</p><h2>Trabalhos em gesso e drywall.</h2></div><a class="button button-light" href="portfolio.html">Ver todos</a></div>
+    <div id="portfolio-grid" class="portfolio-grid"></div>
+  </div>
+</section>
+
+<section id="regioes">
+  <div class="container">
+    <div class="section-head"><div><p class="eyebrow">Atendimento</p><h2>Atendemos a Baixada Santista.</h2></div></div>
+    <div class="diffs">
+      <div><b>Itanhaém</b><span>Gesso, forros, sancas e drywall</span></div>
+      <div><b>Mongaguá</b><span>Acabamentos e soluções sob medida</span></div>
+      <div><b>Praia Grande</b><span>Projetos residenciais e comerciais</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head"><div><p class="eyebrow">Avaliações</p><h2>O que nossos clientes dizem.</h2></div></div>
+    <div id="reviews-grid" class="reviews-grid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container faq">
+    <div class="section-head"><div><p class="eyebrow">Dúvidas</p><h2>Perguntas frequentes.</h2></div></div>
+    <div id="faq-list"></div>
+  </div>
+</section>
+
+<section id="contato" class="section-dark">
+  <div class="container">
+    <div class="section-head"><div><p class="eyebrow">Orçamento</p><h2>Conte o que você precisa.</h2><p class="lead">Envie cidade, fotos, medidas aproximadas e uma descrição do ambiente.</p></div><a class="button button-cream js-wa" href="#">Falar no WhatsApp ↗</a></div>
+    <form id="quote-form" class="quote-form">
+      <input name="nome" placeholder="Seu nome" required>
+      <input name="cidade" placeholder="Cidade" required>
+      <input name="servico" placeholder="Serviço desejado">
+      <input name="ambiente" placeholder="Ambiente">
+      <textarea name="detalhes" placeholder="Conte um pouco do que precisa"></textarea>
+      <button class="button button-cream" type="submit">Enviar pelo WhatsApp</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="container">© <span id="year"></span> BelartGesso — Detalhes que transformam seu espaço.</div></footer>
+<script src="js/app.js" defer></script>
 </body>
 </html>
