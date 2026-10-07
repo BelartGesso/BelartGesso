@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador Automatizado de Produtos</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #121212; color: #fff; padding: 20px; max-width: 800px; margin: 0 auto; }
+    .card { background: #1e1e1e; padding: 20px; border-radius: 12px; border: 1px solid #333; margin-top: 20px; }
+    input, select, button, textarea { width: 100%; padding: 12px; margin-top: 8px; margin-bottom: 16px; border-radius: 8px; border: 1px solid #444; background: #2a2a2a; color: #fff; font-size: 14px; }
+    button { background: #fe2c55; border: none; font-weight: bold; cursor: pointer; }
+    button:hover { opacity: 0.9; }
+    .preview { display: flex; gap: 16px; align-items: center; background: #000; padding: 12px; border-radius: 8px; }
+    .preview img { width: 100px; height: 100px; object-fit: contain; background: #fff; border-radius: 6px; }
+    textarea { height: 160px; font-family: monospace; font-size: 12px; }
+  </style>
+</head>
+<body>
+
+  <h2>📦 Extrair Dados de Link de Afiliado</h2>
+  <p style="color: #aaa; font-size: 14px;">Cole o link do produto (Mercado Livre, Shopee, etc.) para puxar as informações automaticamente.</p>
+
+  <label>URL do Produto / Afiliado:</label>
+  <input type="url" id="productUrl" placeholder="https://www.mercadolivre.com.br/p/MLB...">
+
+  <button onclick="extrairDados()">🔎 Extrair Informações</button>
+
+  <div id="status"></div>
+
+  <div class="card" id="resultCard" style="display:none;">
+    <h3>Pré-visualização do Produto</h3>
+    <div class="preview">
+      <img id="prevImg" src="" alt="Imagem do Produto">
+      <div>
+        <h4 id="prevTitle" style="margin:0 0 8px 0;"></h4>
+        <p id="prevPrice" style="color: #25f4ee; font-weight: bold; margin:0;"></p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:20px;">JSON Gerado (Copie para o `produtos.json`):</h3>
+    <textarea id="jsonOutput" readonly></textarea>
+    <button onclick="copiarJSON()" style="background:#ffe600; color:#000;">📋 Copiar JSON</button>
+  </div>
+
+  <script>
+    async function extrairDados() {
+      const urlInput = document.getElementById('productUrl').value.trim();
+      const statusDiv = document.getElementById('status');
+      const resultCard = document.getElementById('resultCard');
+
+      if (!urlInput) {
+        alert('Por favor, insira uma URL válida.');
+        return;
+      }
+
+      statusDiv.innerText = '⏳ Buscando dados do produto...';
+      resultCard.style.display = 'none';
+
+      try {
+        // Usa o serviço AllOrigins para ignorar bloqueios de CORS do navegador
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(urlInput)}`;
+        const response = await fetch(proxyUrl);
+        const data = await response.json();
+
+        if (!data.contents) {
+          throw new Error('Não foi possível ler o conteúdo da página.');
+        }
+
+        // Converte o HTML recebido para um documento manipulável
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data.contents, 'text/html');
+
+        // Extrai metadados Open Graph (OG) presentes na maioria das páginas de e-commerce
+        const titulo = doc.querySelector('meta[property="og:title"]')?.content || 
+                       doc.querySelector('title')?.innerText || 'Produto Sem Título';
+        
+        const imagem = doc.querySelector('meta[property="og:image"]')?.content || '';
+        
+        // Tentativa de busca do preço nas tags Open Graph ou schema.org
+        let preco = doc.querySelector('meta[property="product:price:amount"]')?.content || 
+                    doc.querySelector('meta[property="og:price:amount"]')?.content || 0;
+
+        preco = parseFloat(preco) || 0;
+
+        // Monta o objeto no mesmo formato do seu `produtos.json`
+        const produtoObj = {
+          id: 'prod-' + Date.now().toString(36),
+          nome: titulo.trim(),
+          categoria: 'Geral',
+          marca: '',
+          preco_de: 0,
+          preco: preco,
+          estoque: true,
+          destaque: false,
+          badge: 'NOVO',
+          descricao: titulo.trim(),
+          imagem: imagem,
+          imagem_alt: titulo.trim(),
+          links: {
+            tiktok: urlInput.includes('tiktok') ? urlInput : '',
+            shopee: urlInput.includes('shopee') ? urlInput : '',
+            mercado_livre: urlInput.includes('mercadolivre') || urlInput.includes('meli.la') ? urlInput : ''
+          },
+          cupom: '',
+          avaliacao: 5.0,
+          whatsapp: '5511976983978'
+        };
+
+        // Exibe os resultados na tela
+        document.getElementById('prevTitle').innerText = produtoObj.nome;
+        document.getElementById('prevPrice').innerText = preco > 0 ? `R$ ${preco.toFixed(2)}` : 'Preço não identificado automaticamente';
+        document.getElementById('prevImg').src = imagem || 'https://via.placeholder.com/100';
+        document.getElementById('jsonOutput').value = JSON.stringify(produtoObj, null, 2);
+
+        statusDiv.innerText = '✅ Dados extraídos com sucesso!';
+        resultCard.style.display = 'block';
+
+      } catch (err) {
+        console.error(err);
+        statusDiv.innerText = '❌ Erro ao extrair dados. Algumas lojas bloqueiam requisições externas ou exigem API oficial.';
+      }
+    }
+
+    function copiarJSON() {
+      const jsonText = document.getElementById('jsonOutput');
+      jsonText.select();
+      navigator.clipboard.writeText(jsonText.value);
+      alert('JSON copiado para a área de transferência!');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerenciador V6.1 FIX - Ivan C Melo - FUNCIONANDO</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0a0a;color:#fff;font-family:Inter,Arial}
+.header{background:linear-gradient(90deg,#fe2c55,#25f4ee);padding:18px;text-align:center}
+.header h1{font-size:20px;font-weight:900}
+.wrap{max-width:1400px;margin:auto;padding:14px}
+.dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.dcard{background:#151515;border:1px solid #222;border-radius:12px;padding:14px;text-align:center}
+.dcard b{font-size:24px;display:block;color:#25f4ee} .dcard span{font-size:11px;color:#888;text-transform:uppercase;font-weight:700}
+.dcard.oferta b{color:#fe2c55} .dcard.clicks b{color:#ffe600}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{background:#222;border:1px solid #333;color:#fff;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:800;font-size:12px}
+.btn.p{background:#fe2c55} .btn.y{background:#ffe600;color:#000} .btn.g{background:#25d366;color:#000} .btn.c{background:#25f4ee;color:#000}
+.search{flex:1;min-width:200px;background:#151515;border:1px solid #333;border-radius:8px;padding:10px;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{background:#151515;border:1px solid #222;border-radius:12px;overflow:hidden}
+.thumb{height:160px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative}
+.thumb img{max-width:90%;max-height:90%}
+.info{padding:10px}
+.nome{font-weight:700;font-size:12px;min-height:36px} .preco{color:#25f4ee;font-weight:900;font-size:16px}
+.meta{font-size:10px;color:#666}
+.actions{display:flex;gap:6px;margin-top:8px} .actions button{flex:1;padding:6px;border:0;border-radius:6px;cursor:pointer;font-weight:700;font-size:11px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:12px;z-index:10;overflow:auto}
+.modal.open{display:flex}
+.box{background:#151515;border:1px solid #333;border-radius:12px;padding:16px;width:100%;max-width:750px;max-height:92vh;overflow:auto}
+.field{margin-bottom:10px;display:flex;flex-direction:column;gap:4px}
+.field label{font-size:10px;color:#aaa;font-weight:800;text-transform:uppercase}
+.field input,.field textarea,.field select{background:#0a0a0a;border:1px solid #333;border-radius:6px;padding:9px;color:#fff;width:100%}
+.field textarea{min-height:70px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.preview{height:120px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:6px;color:#999}
+.toast{position:fixed;top:10px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:10px 14px;border-radius:999px;font-weight:800;display:none;z-index:99}
+.panel{background:#151515;border:1px solid #222;border-radius:12px;padding:14px;margin:12px 0}
+.panel h3{font-size:13px;margin-bottom:10px;color:#25f4ee}
+.click-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #222;font-size:12px}
+@media(max-width:700px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header"><h1>GERENCIADOR V6.1 FIX - FUNCIONANDO ✅</h1><p>Zap (11) 97698-3978 - Ofertas, Clicks, Busca</p></div>
+<div class="wrap">
+<div class="dashboard" id="dashboard"></div>
+<div class="panel" id="topClicks"><h3>🔥 Mais Clicados</h3><div id="topList">Nenhum clique ainda</div></div>
+<div class="controls">
+<input id="search" class="search" placeholder="Buscar por nome, marca, categoria..." oninput="render()">
+<button class="btn p" onclick="openForm()">+ Novo Produto</button>
+<button class="btn c" onclick="saveLocal()">Salvar Local</button>
+<button class="btn y" onclick="exportJSON()">Baixar produtos.json V6</button>
+<button class="btn g" onclick="loadDefault()">Reset 5 Padrão V6</button>
+<button class="btn" onclick="clearClicks()">Zerar Clicks</button>
+</div>
+<div class="grid" id="grid"></div>
+</div>
+<div class="modal" id="modal">
+<div class="box">
+<h2 id="mtitle" style="margin-bottom:12px">Produto V6</h2>
+<div class="row">
+<div class="field"><label>ID (slug) *</label><input id="f_id" placeholder="pinador-ingco-20v"></div>
+<div class="field"><label>BADGE *</label><input id="f_badge" placeholder="OFERTA -25%"></div>
+</div>
+<div class="field"><label>NOME *</label><input id="f_nome" placeholder="Pinador INGCO 20V"></div>
+<div class="row">
+<div class="field"><label>MARCA</label><input id="f_marca" placeholder="INGCO"></div>
+<div class="field"><label>CATEGORIA *</label><input id="f_cat" placeholder="Ferramentas"></div>
+</div>
+<div class="row">
+<div class="field"><label>PREÇO DE (antigo) - 0 se sem desconto</label><input id="f_preco_de" type="text" inputmode="decimal" placeholder="5.590,00"></div>
+<div class="field"><label>PREÇO ATUAL *</label><input id="f_preco" type="text" inputmode="decimal" placeholder="4.232,00"></div>
+</div>
+<div class="row">
+<div class="field"><label>ESTOQUE</label><select id="f_estoque"><option value="true">✅ Em estoque</option><option value="false">❌ Sem estoque</option></select></div>
+<div class="field"><label>DESTAQUE (topo)</label><select id="f_destaque"><option value="true">🔥 Sim - vai pro topo</option><option value="false">Não</option></select></div>
+</div>
+<div class="field"><label>DESCRIÇÃO (buscável)</label><textarea id="f_desc" placeholder="Descrição completa - usada na busca"></textarea></div>
+<div class="row">
+<div class="field"><label>LINK TIKTOK</label><input id="f_tk" placeholder="https://..."></div>
+<div class="field"><label>LINK SHOPEE</label><input id="f_sp" placeholder="https://..."></div>
+</div>
+<div class="row">
+<div class="field"><label>LINK MERCADO LIVRE</label><input id="f_ml" placeholder="https://..."></div>
+<div class="field"><label>CUPOM / CÓDIGO ML</label><input id="f_cupom" placeholder="IVAN10"></div>
+</div>
+<div class="field"><label>IMAGEM PRINCIPAL (arquivo.jpg)</label><input id="f_img" placeholder="pinador_ingco_20v.jpg" oninput="preview()"><div class="preview" id="prev">Sem imagem</div></div>
+<div class="field"><label>IMAGEM ALT (opcional)</label><input id="f_img2" placeholder="opcional.jpg"></div>
+<div style="display:flex;gap:8px;margin-top:12px"><button class="btn p" style="flex:1" onclick="saveProd()">SALVAR V6</button><button class="btn" style="flex:1" onclick="closeForm()">Cancelar</button></div>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const DEFAULT_PRODUTOS = [{"id": "pinador-ingco-20v", "nome": "Pinador para Concreto a Bateria 20V Brushless da INGCO", "categoria": "Ferramentas", "marca": "INGCO", "preco_de": 5590, "preco": 4232, "estoque": true, "destaque": true, "badge": "OFERTA -24%", "descricao": "Pinador INGCO 20V Brushless para concreto, potente e sem fio - 4.232 vendas - Ideal para construção e acabamento", "imagem": "pinador_ingco_20v.jpg", "imagem_alt": "", "links": {"tiktok": "https://shop.tiktok.com/br/search?keyword=INGCO%20pinador", "shopee": "", "mercado_livre": ""}, "cupom": "IVAN10", "avaliacao": 4.9, "whatsapp": "5511976983978"}, {"id": "chave-ryoku-600nm", "nome": "Chave De Impacto Brushless 600 Nm 2 Baterias 21v Sem Fio RYOKU Com Maleta", "categoria": "Ferramentas", "marca": "RYOKU", "preco_de": 350.0, "preco": 230.0, "estoque": true, "destaque": true, "badge": "OFERTA -34%", "descricao": "Chave de Impacto Ryoku 600Nm 520N.m com 2 baterias 21V - ideal para mecânica e uso profissional", "imagem": "chave_de_impacto_ryoku.jpg", "imagem_alt": "", "links": {"tiktok": "https://shop.tiktok.com/br/pdp/1734498300958050085?_t=ZS-9ADVkI84UAH", "shopee": "", "mercado_livre": ""}, "cupom": "IVAN10", "avaliacao": 4.8, "whatsapp": "5511976983978"}, {"id": "kit-v8-bm800", "nome": "Kit Completo Interface Mesa V8 + Microfone Bm800 Com Braço Articulado", "categoria": "Áudio", "marca": "BM800", "preco_de": 0, "preco": 142.0, "estoque": true, "destaque": false, "badge": "Mais Vendido", "descricao": "Kit Microfone Condensador BM800 com placa V8, suporte e espuma - qualidade estúdio para podcast e live", "imagem": "kit_microfone_transparente.png", "imagem_alt": "", "links": {"tiktok": "https://shop.tiktok.com/br/pdp/1735385374513988883?_t=ZS-9ACfwPSMclh", "shopee": "", "mercado_livre": ""}, "cupom": "IVAN10", "avaliacao": 4.9, "whatsapp": "5511976983978"}, {"id": "lapela-kaidi-duplo", "nome": "Microfone Profissional Sem Fio Duplo Lapela Kaidi para iPhone/Android", "categoria": "Áudio", "marca": "Kaidi", "preco_de": 129.9, "preco": 92.0, "estoque": true, "destaque": true, "badge": "OFERTA -29%", "descricao": "Microfone de Lapela Alpha Gold duplo sem fio - som limpo para gravações, entrevistas e TikTok", "imagem": "lapela_alpha_gold_transparente_final.png", "imagem_alt": "", "links": {"tiktok": "https://shop.tiktok.com/br/pdp/1735440614844172013?_t=ZS-9AChH7drl2q", "shopee": "", "mercado_livre": ""}, "cupom": "IVAN10", "avaliacao": 4.7, "whatsapp": "5511976983978"}, {"id": "parafusadeira-16-8v", "nome": "Parafusadeira 16.8V Brushless Impacto Sem Fio 2.0Ah Bivolt Azul Petróleo", "categoria": "Ferramentas", "marca": "Hanabi", "preco_de": 199.9, "preco": 149.9, "estoque": true, "destaque": true, "badge": "COMBO ML", "descricao": "Parafusadeira Hanabi 16.8V Brushless com 2 baterias - código ML WPNN5W-3R8V meli.la/2MoxWGy", "imagem": "furadeira_hanabi_FINAL_BLACK_transparente.png", "imagem_alt": "", "links": {"tiktok": "https://shop.tiktok.com/br/pdp/1733726957123503408?_t=ZS-9ACiUc6W7SG", "shopee": "", "mercado_livre": "https://meli.la/2MoxWGy"}, "cupom": "WPNN5W-3R8V", "avaliacao": 4.8, "whatsapp": "5511976983978"}];
+let produtos=[]; let editIdx=-1;
+const $=id=>document.getElementById(id);
+function parseBR(v){
+  v=String(v||'').trim().replace(/R\$\s*/,'');
+  if(!v) return 0;
+  if(v.includes(',')) v=v.replace(/\./g,'').replace(',','.');
+  else if(/^\d{1,3}(\.\d{3})+$/.test(v)) v=v.replace(/\./g,'');
+  const n=parseFloat(v); return isNaN(n)?0:n;
+}
+function brl(n){return Number(n).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
+function clone(v){return JSON.parse(JSON.stringify(v));}
+function toast(m){const t=$("toast");t.textContent=m;t.style.display="block";clearTimeout(window._t);window._t=setTimeout(()=>t.style.display="none",2500);}
+function getClicks(){try{return JSON.parse(localStorage.getItem('vitrine_clicks')||'{}');}catch{return {};}}
+function getTotalClicks(){return parseInt(localStorage.getItem('vitrine_clicks_total')||'0');}
+function getFavs(){try{return JSON.parse(localStorage.getItem('vitrine_favs')||'[]');}catch{return [];}}
+function updateDashboard(){
+  const cats=[...new Set(produtos.map(p=>p.categoria))];
+  const ofertas=produtos.filter(p=>p.preco_de>0 && p.preco_de>p.preco).length;
+  const clicks=getTotalClicks();
+  const favs=getFavs().length;
+  $("dashboard").innerHTML='<div class="dcard"><b>'+produtos.length+'</b><span>Produtos</span></div><div class="dcard oferta"><b>'+ofertas+'</b><span>Ofertas</span></div><div class="dcard clicks"><b>'+clicks+'</b><span>Clicks Totais</span></div><div class="dcard"><b>'+cats.length+'</b><span>Categorias</span></div><div class="dcard"><b>'+favs+'</b><span>Favoritos</span></div>';
+  const ck=getClicks();
+  const sorted=Object.entries(ck).sort((a,b)=>b[1].total-a[1].total).slice(0,5);
+  if(sorted.length===0){ $("topList").innerHTML='<div style="color:#666;font-size:12px">Nenhum clique ainda</div>'; return; }
+  $("topList").innerHTML=sorted.map(([id,data])=>{
+    const p=produtos.find(x=>x.id===id); const nome=p?p.nome:id;
+    return '<div class="click-row"><span>'+nome.substring(0,45)+'</span><span>👁️ '+data.total+' (TT:'+(data.tiktok||0)+' SP:'+(data.shopee||0)+' ML:'+(data.mercado_livre||0)+' ZAP:'+(data.whatsapp||0)+')</span></div>';
+  }).join('');
+}
+function render(){
+  const q=$("search").value.toLowerCase();
+  const grid=$("grid"); grid.innerHTML="";
+  const list=produtos.map((p,i)=>Object.assign({},p,{_i:i})).filter(p=>!q|| (p.nome+' '+p.categoria+' '+(p.marca||'')+' '+(p.descricao||'')).toLowerCase().includes(q));
+  list.forEach(p=>{
+    const desc = p.preco_de>0 && p.preco_de>p.preco ? Math.round((1-p.preco/p.preco_de)*100) : 0;
+    const clicks=getClicks()[p.id];
+    const d=document.createElement("div"); d.className="card";
+    const imgPart = p.imagem ? '<img src="./'+p.imagem+'" style="max-width:90%;max-height:90%" onerror="this.style.display=\'none\'">' : '🔧';
+    const badgePart = p.badge ? '<span style="position:absolute;top:8px;left:8px;background:#fe2c55;color:#fff;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:800">'+p.badge+'</span>' : '';
+    d.innerHTML='<div class="thumb">'+badgePart+imgPart+'</div><div class="info"><div class="meta">'+p.categoria+' '+(p.marca?'• '+p.marca:'')+'</div><div class="nome">'+p.nome+'</div><div class="preco">'+(p.preco_de>0?'<small style="text-decoration:line-through;color:#888">R$ '+p.preco_de+'</small> ':'')+brl(p.preco)+' '+(desc>0?'<small style="background:#fe2c55;color:#fff;padding:2px 6px;border-radius:6px">-'+desc+'%</small>':'')+'</div><div class="meta">'+(p.destaque?'🔥 Destaque • ':'')+(p.estoque?'✅ Estoque':'❌ Sem estoque')+' '+(clicks?'• 👁️ '+clicks.total+' clicks':'')+'</div><div class="actions"><button style="background:#25f4ee" onclick="openForm('+p._i+')">Editar</button><button style="background:#333;color:#fff" onclick="dup('+p._i+')">Dup</button><button style="background:#fe2c55;color:#fff" onclick="del('+p._i+')">Del</button></div></div>';
+    grid.appendChild(d);
+  });
+}
+function openForm(i){
+  editIdx=i; $("modal").classList.add("open");
+  $("mtitle").textContent=i>=0?"Editar Produto V6":"Novo Produto V6";
+  const p=i>=0?produtos[i]:{id:"",nome:"",categoria:"Ferramentas",marca:"",preco_de:0,preco:0,estoque:true,destaque:false,badge:"",descricao:"",imagem:"",imagem_alt:"",links:{tiktok:"",shopee:"",mercado_livre:""},cupom:""};
+  $("f_id").value=p.id||""; $("f_nome").value=p.nome||""; $("f_cat").value=p.categoria||""; $("f_marca").value=p.marca||""; $("f_preco_de").value=p.preco_de||0; $("f_preco").value=p.preco||""; $("f_estoque").value=String(p.estoque); $("f_destaque").value=String(p.destaque); $("f_badge").value=p.badge||""; $("f_desc").value=p.descricao||""; $("f_tk").value=p.links?.tiktok||""; $("f_sp").value=p.links?.shopee||""; $("f_ml").value=p.links?.mercado_livre||""; $("f_cupom").value=p.cupom||""; $("f_img").value=p.imagem||""; $("f_img2").value=p.imagem_alt||""; preview();
+}
+function closeForm(){ $("modal").classList.remove("open"); editIdx=-1; }
+function preview(){
+  const img=$("f_img").value.trim();
+  const prev=$("prev");
+  if(!img){ prev.textContent='Sem imagem'; return; }
+  prev.innerHTML='';
+  const im=document.createElement('img');
+  im.src='./'+img;
+  im.style.maxWidth='90%'; im.style.maxHeight='90%';
+  im.onerror=function(){ prev.textContent='Imagem não encontrada: '+img; };
+  prev.appendChild(im);
+}
+function saveProd(){
+  const nome=$("f_nome").value.trim(); const preco=parseBR($("f_preco").value);
+  if(!nome){toast("Nome obrigatório"); return;} if(!preco){toast("Preço obrigatório"); return;}
+  const p={
+    id:$("f_id").value.trim()||'prod-'+Date.now(),
+    nome,
+    categoria:$("f_cat").value.trim()||"Sem categoria",
+    marca:$("f_marca").value.trim(),
+    preco_de:parseBR($("f_preco_de").value),
+    preco,
+    estoque:$("f_estoque").value==="true",
+    destaque:$("f_destaque").value==="true",
+    badge:$("f_badge").value.trim(),
+    descricao:$("f_desc").value.trim(),
+    imagem:$("f_img").value.trim(),
+    imagem_alt:$("f_img2").value.trim(),
+    links:{tiktok:$("f_tk").value.trim(), shopee:$("f_sp").value.trim(), mercado_livre:$("f_ml").value.trim()},
+    cupom:$("f_cupom").value.trim(),
+    avaliacao:(editIdx>=0 && produtos[editIdx].avaliacao)||4.8,
+    whatsapp:(editIdx>=0 && produtos[editIdx].whatsapp)||"5511976983978"
+  };
+  if(p.preco<10 && !confirm('Preço atual '+brl(p.preco)+' parece muito baixo. Salvar mesmo assim?')) return;
+  if(p.preco_de>0 && p.preco_de<=p.preco && !confirm('"Preço de" não é maior que o preço atual, então não aparece como oferta. Salvar mesmo assim?')) return;
+  if(editIdx>=0) produtos[editIdx]=p; else produtos.push(p);
+  saveLocal(false); render(); updateDashboard(); closeForm(); toast("✅ Produto V6 salvo");
+}
+function dup(i){ const p=clone(produtos[i]); p.id='prod-'+Date.now(); p.nome+=" (cópia)"; produtos.splice(i+1,0,p); saveLocal(false); render(); updateDashboard(); }
+function del(i){ if(!confirm('Excluir "'+produtos[i].nome+'"?')) return; produtos.splice(i,1); saveLocal(false); render(); updateDashboard(); }
+function saveLocal(show){ if(show===undefined) show=true; localStorage.setItem("vitrine_v6", JSON.stringify(produtos)); if(show) toast("💾 Salvo "+produtos.length+" produtos"); }
+function loadDefault(){ if(!confirm("Restaurar 5 produtos padrão V6?")) return; produtos=clone(DEFAULT_PRODUTOS); saveLocal(false); render(); updateDashboard(); toast("5 produtos V6 restaurados"); }
+function clearClicks(){ if(!confirm("Zerar todos os clicks?")) return; localStorage.removeItem("vitrine_clicks"); localStorage.removeItem("vitrine_clicks_total"); updateDashboard(); toast("Clicks zerados"); }
+function exportJSON(){
+  const data=JSON.stringify(produtos,null,2); const blob=new Blob([data],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="produtos.json"; a.click();
+  toast("produtos.json V6 baixado com "+produtos.length+" produtos");
+}
+function init(){
+  try{ const s=JSON.parse(localStorage.getItem("vitrine_v6")||"null"); produtos=Array.isArray(s)?s:clone(DEFAULT_PRODUTOS); }catch{ produtos=clone(DEFAULT_PRODUTOS); }
+  if(produtos.length===0) produtos=clone(DEFAULT_PRODUTOS);
+  render(); updateDashboard();
+}
+$("search").addEventListener("input", render);
+init();
+</script>
+</body>
+</html>

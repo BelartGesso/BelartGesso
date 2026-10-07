@@ -1,0 +1,112 @@
+[
+  {
+    "id": "pinador-ingco-20v",
+    "nome": "Pinador para Concreto a Bateria 20V Brushless da INGCO",
+    "categoria": "Ferramentas",
+    "marca": "INGCO",
+    "preco_de": 5590.00,
+    "preco": 4232.00,
+    "estoque": true,
+    "destaque": true,
+    "badge": "OFERTA -24%",
+    "descricao": "Pinador INGCO 20V Brushless para concreto, potente e sem fio - 4.232 vendas - Ideal para construção e acabamento",
+    "imagem": "pinador-42v.jpg",
+    "imagem_alt": "Pinador para Concreto INGCO 20V",
+    "links": {
+      "tiktok": "https://shop.tiktok.com/br/search?keyword=INGCO%20pinador",
+      "shopee": "",
+      "mercado_livre": ""
+    },
+    "cupom": "IVAN10",
+    "avaliacao": 4.9,
+    "whatsapp": "5511976983978"
+  },
+  {
+    "id": "chave-ryoku-600nm",
+    "nome": "Chave De Impacto Brushless 600 Nm 2 Baterias 21v Sem Fio RYOKU Com Maleta",
+    "categoria": "Ferramentas",
+    "marca": "RYOKU",
+    "preco_de": 350.00,
+    "preco": 230.00,
+    "estoque": true,
+    "destaque": true,
+    "badge": "OFERTA -34%",
+    "descricao": "Chave de Impacto Ryoku 600Nm 520N.m com 2 baterias 21V - ideal para mecânica e uso profissional",
+    "imagem": "chave-de-impacto-ryoku.jpg",
+    "imagem_alt": "Chave De Impacto RYOKU 600Nm",
+    "links": {
+      "tiktok": "https://shop.tiktok.com/br/pdp/1734498300958050085?_t=ZS-9ADVkI84UAH",
+      "shopee": "",
+      "mercado_livre": ""
+    },
+    "cupom": "IVAN10",
+    "avaliacao": 4.8,
+    "whatsapp": "5511976983978"
+  },
+  {
+    "id": "kit-v8-bm800",
+    "nome": "Kit Completo Interface Mesa V8 + Microfone Bm800 Com Braço Articulado",
+    "categoria": "Áudio",
+    "marca": "BM800",
+    "preco_de": 250.00,
+    "preco": 140.98,
+    "estoque": true,
+    "destaque": false,
+    "badge": "Mais Vendido",
+    "descricao": "Kit Microfone Condensador BM800 com placa V8, suporte e espuma - qualidade estúdio para podcast e live",
+    "imagem": "kit_microfone_transparente.png",
+    "imagem_alt": "Kit Interface Mesa V8 + Microfone BM800",
+    "links": {
+      "tiktok": "https://shop.tiktok.com/br/pdp/1735385374513988883?_t=ZS-9ACfwPSMclh",
+      "shopee": "",
+      "mercado_livre": ""
+    },
+    "cupom": "IVAN10",
+    "avaliacao": 4.8,
+    "whatsapp": "5511976983978"
+  },
+  {
+    "id": "lapela-kaidi-duplo",
+    "nome": "Microfone Profissional Sem Fio Duplo Lapela Kaidi para iPhone/Android",
+    "categoria": "Áudio",
+    "marca": "Kaidi",
+    "preco_de": 129.90,
+    "preco": 39.00,
+    "estoque": true,
+    "destaque": true,
+    "badge": "OFERTA -70%",
+    "descricao": "Microfone de Lapela Alpha Gold duplo sem fio - som limpo para gravações, entrevistas e TikTok",
+    "imagem": "fone-de-lapela.jpg",
+    "imagem_alt": "Microfone de Lapela Kaidi Duplo Sem Fio",
+    "links": {
+      "tiktok": "https://shop.tiktok.com/br/pdp/1735440614844172013?_t=ZS-9AChH7drl2q",
+      "shopee": "",
+      "mercado_livre": ""
+    },
+    "cupom": "IVAN10",
+    "avaliacao": 4.7,
+    "whatsapp": "5511976983978"
+  },
+  {
+    "id": "parafusadeira-16-8v",
+    "nome": "Parafusadeira 16.8V Brushless Impacto Sem Fio 2.0Ah Bivolt Azul Petróleo",
+    "categoria": "Ferramentas",
+    "marca": "Hanabi",
+    "preco_de": 199.90,
+    "preco": 149.90,
+    "estoque": true,
+    "destaque": true,
+    "badge": "COMBO ML",
+    "descricao": "Parafusadeira Hanabi 16.8V Brushless com 2 baterias - código ML WPNN5W-3R8V meli.la/2MoxWGy",
+    "imagem": "hanabi-3006.jpg",
+    "imagem_alt": "Parafusadeira Hanabi 16.8V Brushless",
+    "links": {
+      "tiktok": "https://shop.tiktok.com/br/pdp/1733726957123503408?_t=ZS-9ACiUc6W7SG",
+      "shopee": "",
+      "mercado_livre": "https://meli.la/2MoxWGy"
+    },
+    "cupom": "WPNN5W-3R8V",
+    "avaliacao": 4.8,
+    "whatsapp": "5511976983978"
+  }
+]
