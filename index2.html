@@ -211,7 +211,7 @@ function render(){
           ${tk?'<a class="btn tk" href="'+tk+'" target="_blank" onclick="addClick(\''+p.id+'\',\'tiktok\')">🛒 TikTok Shop</a>':''}
           ${sp?'<a class="btn sp" href="'+sp+'" target="_blank" rel="noopener" onclick="addClick(\''+p.id+'\',\'shopee\')">🧡 Shopee</a>':''}
           ${ml?'<a class="btn ml" href="'+ml+'" target="_blank" onclick="addClick(\''+p.id+'\',\'mercado_livre\')">💛 Mercado Livre</a>':''}
-          ${p.video?'<a class="btn share" href="./'+p.video+'" target="_blank" rel="noopener">🎥 Ver vídeo</a>':''}
+          ${p.video?'<a class="btn share" href="./imagens/'+p.video+'" target="_blank" rel="noopener">🎥 Ver vídeo</a>':''}
           <a class="btn zp" href="https://wa.me/${zap}?text=${encodeURIComponent('Olá Ivan! Vi '+p.nome+' - '+formatPreco(p.preco)+' na sua vitrine https://belartgesso.github.io/BelartGesso/')}" target="_blank" onclick="addClick('${p.id}','whatsapp')">💬 Zap (11) 97698-3978</a>
           <button class="btn share" onclick="compartilhar(produtos.find(x=>x.id==='${p.id}'))">📤 Compartilhar</button>
         </div>
